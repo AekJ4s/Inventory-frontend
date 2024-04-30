@@ -1,0 +1,44 @@
+<form (submit)="onSubmit()">
+    <div>
+    
+        <div>
+    
+            <input type="number" [(ngModel)]="products.id" placeholder="Enter book ID" name="bookId">
+    
+        </div>
+        <button type="submit">Submit</button>
+
+    </div>
+    
+</form>
+
+<table *ngIf="nameIsNull()">
+    <thead>
+        <tr>
+            <th>
+                Products ID
+            </th>
+            <th>
+                Products Name
+            </th>
+            <th>
+                Products Sescription
+            </th>
+       
+        </tr>
+    </thead>
+    <tbody>
+        <tr >
+        <td>
+            {{products.id}}
+        </td>
+        <td>
+            {{products.name}}
+        </td>
+        <td>
+            {{products.description}}
+        </td>
+  
+        </tr>
+    </tbody>
+</table>

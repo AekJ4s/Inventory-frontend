@@ -1,0 +1,19 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <form (submit)="onSubmit()">
+    <div class="card mt-3 mb-3 text-center">
+      <div class="card-header">ลบสินค้ารหัสนี้</div>
+      <div class="card-body">
+        <div class="text-center">
+          <input
+            type="number"
+            class="text-center"
+            [(ngModel)]="product.id"
+            name="id"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-sm btn-danger mt-3">ลบเลย</button>
+      </div>
+    </div>
+  </form>
+</div>
