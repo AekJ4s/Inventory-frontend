@@ -10,27 +10,28 @@ import {MatIconModule} from '@angular/material/icon';
 import { NgFor } from "@angular/common";
 import catigories from "../../models/catigories";
 import { CategoryServices } from "../../services/Category.service";
-import { RouterModule } from "@angular/router";
+import { Transactionservices } from "../../services/Transactions.service";
+import transactions from "../../models/transactions";
 import { Router } from "@angular/router";
 @Component({
-    selector: 'categoriesCreate-component',
+    selector: 'transactionCreate-component',
     standalone: true,
-    templateUrl: './categoriesCreate.components.html',
-    styleUrl: './categoriesCreate.components.css',
-    imports: [RouterModule,MatIconModule,MatInputModule,MatSelectModule,FormsModule,MatFormFieldModule,NgFor]
+    templateUrl: './transactionsCreate.components.html',
+    styleUrl: './transactionsCreate.components.css',
+    imports: [MatIconModule,MatInputModule,MatSelectModule,FormsModule,MatFormFieldModule,NgFor]
 })
 
-export class CategoryCreateComponent{
-    Category = new catigories();
-    constructor(private categoryService: CategoryServices, private router: Router) { }
-
+export class TransactionsCreate{
+    transaction = new transactions();
+    constructor(private transactionService: Transactionservices , private router: Router){ }
 
    
     
     onSubmit(){
-        this.categoryService.CreateCategory(this.Category).subscribe(
+        this.transactionService.post(this.transaction).subscribe(
             (result) => {
-                this.router.navigate(['categorylist']);
+                this.router.navigate(['transactionlist']);
+
             },
             (error) => {
                 console.error(error);

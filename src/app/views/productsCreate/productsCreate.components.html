@@ -1,28 +1,28 @@
-<form (submit)="onSubmit()">
+<form (submit)="onSubmit()" >
+  <div class="container">
     <div>
-      <label> Product name : </label>
-            <input type="text" [(ngModel)]="products.name" name="name" required>
+      <label for="name">Product name:</label>
+      <input type="text" [(ngModel)]="products.name" name="name" id="name" required>
     </div>
     <div>
-      <label> Product description : </label>
-            <input type="text" [(ngModel)]="products.description" name="description">
+      <label for="description">Product description:</label>
+      <input type="text" [(ngModel)]="products.description" name="description" id="description">
     </div>
     <div>
-      <label> Product categoryId : </label>
-            <select type="number" [(ngModel)]="products.categoryId" name="categoryId" required>
-              <!-- <option *ngFor="let category in Product.categoryId" [value]="Product.categoryId">{{ category.name }}</option> -->
-              <option *ngFor="let item of category" [value]="item.id"> {{item.id}} {{ item.name }}  </option>
-            </select>
+      <label for="categoryId">Product categoryId:</label>
+      <select [(ngModel)]="products.categoryId" name="categoryId" id="categoryId" required>
+        <option *ngFor="let item of category" [value]="item.id"> {{item.id}} - {{ item.name }} </option>
+      </select>
     </div>
-   
     <div>
-      <label> Product stockQuantity : </label>
-            <input type="number" [(ngModel)]="products.stockQuantity" name="stockQuantity" required>
+      <label for="stockQuantity">Product stockQuantity:</label>
+      <input type="number" [(ngModel)]="products.stockQuantity" name="stockQuantity" id="stockQuantity" required>
     </div>
+    <div>
+      <label for="price">Product price:</label>
+      <input type="number" [(ngModel)]="products.price" name="price" id="price" required>
+    </div>
+    <button type="submit"  class="btn btn-success btn-sm" >เพิ่มสินค้า</button>
 
-    <div>
-      <label> Product price : </label>
-            <input type="number" [(ngModel)]="products.price" name="price" required>
-    </div>
-    <button  type="submit" >Submit</button>
-  </form>
+  </div>
+</form>

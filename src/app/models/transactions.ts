@@ -10,6 +10,6 @@ export default class transactions {
     updateDate = new Date()
     isDelete = false
 
-    transactionsType = new transactionTypes 
+    transactionType = new transactionTypes 
     product = new products
 }

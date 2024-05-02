@@ -1,43 +1,35 @@
-<table>
-    <thead>
-        <tr>
-            <th>
-                Book ID
-            </th>
-            <th>
-                Book Title
-            </th>
-            <th>
-                Book price
-            </th>
-            <th>
-                Edit
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let products of Allproduct">
-        <td>
-            {{products.id}}
-        </td>
-        <td>
-            {{products.name}}
-        </td>
-        <td>
-            {{products.description}}
-        </td>
-        <td>
-            <a
-            class="nav-link"
-            aria-current="page"
-            [routerLink]="['updatebook/:', products.id]"
-            >แก้ไขหนังสือเล่มนี้</a
-          >
-        </td>
-        </tr>
-    </tbody>
+
+<div class=" justify-content-center container mx-auto">
+
+<table class="table mt-5">
+  <thead>
+    <tr class="text-center">
+      <th scope="col" >#</th>
+      <th >ชื่อสินค้า</th>
+      <th >รายละเอียด</th>
+      <th>ประเภท</th>
+      <th>สต็อก</th>
+      <th>ราคา</th>
+      <th>วันที่สร้าง</th>
+      <th>แก้ไข</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of Allproduct; let i = index" class="text-center">
+      <th scope="row">{{i+1}}</th>
+      <td>{{data.name}}</td>
+      <td>{{data.description}}</td>
+      <td>{{data.categoryId}}</td>
+      <td >{{data.stockQuantity }}</td>
+      <td >{{data.price }}</td>
+      <td >{{data.createDate }}</td>
+      <td >
+          <button [routerLink]="['../updateproducts', data.id]"class="btn btn-warning btn-sm">แก้ไขสินค้า</button>
+          <button (click)="onDelete(data.id)" class="btn btn-danger btn-sm">ลบสินค้า</button></td>
+    </tr>
+  </tbody>
 </table>
 
+<button [routerLink]="['../createproducts']"class="btn btn-success btn-sm">สร้างสินค้าใหม่</button>
 
-
-
+</div>

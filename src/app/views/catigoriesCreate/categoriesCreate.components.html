@@ -1,8 +1,12 @@
-<form (submit)="onSubmit()">
+<div class="container justify-content-center mt-5">
+
+  <form (submit)="onSubmit()">
     <div>
       <label> Category name : </label>
-            <input type="text" [(ngModel)]="Category.id" name="Name" required>
+            <input type="text" [(ngModel)]="Category.name" name="Name" required>
     </div>
     
-    <button  type="submit" >Submit</button>
+    <button  type="submit" class="btn btn-sm btn-success"  >สร้าง</button>
   </form>
+
+</div>

@@ -19,8 +19,6 @@ import { ProductListComponent } from './views/productsList/productsList.componen
 })
 export class AppComponent {
   title = 'Inventory Angular';
-  arraySample = [1,3,99,6,8]
-  testInput = ""
  
 }
 

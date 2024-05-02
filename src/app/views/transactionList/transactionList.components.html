@@ -1,0 +1,37 @@
+<div>
+    <table class="table mt-3">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>รหัสธุรกรรม</th>
+            <th>ชื่อสินค้า</th>
+            <th>ประเภทธุรกรรม</th>
+            <th>ปริมาณ</th>
+            <th>วันที่ทำธุรกรรม</th>
+            <th>#</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr *ngFor="let transaction of Alltransaction; let i = index">
+
+              <td>{{ i + 1 }}</td>
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.product.name }}</td>
+              <td>{{ transaction.transactionType.name }}</td>
+              <td>{{ transaction.quantity }}</td>
+              <td>{{ transaction.createDate }}</td>
+              <td>
+                  <button (click)="onDelete(transaction.id)" class="btn btn-sm btn-danger">ยกเลิกรายการ</button>
+              </td>
+        
+            </tr>
+            
+          
+
+          
+        </tbody>
+      </table>
+
+</div>

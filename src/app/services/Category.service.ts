@@ -18,7 +18,7 @@ export class  CategoryServices {
         return this.http.get<catigories>(`${this.baseURL}/${id}`)
     }
     
-    post(category:catigories){
+    CreateCategory(category:catigories){
         return this.http.post<catigories>(`${this.baseURL}`,category)
     }
 

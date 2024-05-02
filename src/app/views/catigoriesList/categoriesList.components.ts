@@ -7,35 +7,30 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-import { NgFor } from "@angular/common";
+import { CommonModule, NgFor } from "@angular/common";
 import catigories from "../../models/catigories";
 import { CategoryServices } from "../../services/Category.service";
-import { RouterModule } from "@angular/router";
-import { Router } from "@angular/router";
+import { RouterLink } from "@angular/router";
 @Component({
-    selector: 'categoriesCreate-component',
+    selector: 'categoriesList-component',
     standalone: true,
-    templateUrl: './categoriesCreate.components.html',
-    styleUrl: './categoriesCreate.components.css',
-    imports: [RouterModule,MatIconModule,MatInputModule,MatSelectModule,FormsModule,MatFormFieldModule,NgFor]
+    templateUrl: './categoriesList.components.html',
+    styleUrl: './categoriesList.components.css',
+    imports: [RouterLink,CommonModule,MatIconModule,MatInputModule,MatSelectModule,FormsModule,MatFormFieldModule,NgFor]
 })
 
-export class CategoryCreateComponent{
-    Category = new catigories();
-    constructor(private categoryService: CategoryServices, private router: Router) { }
+export class CategoryListComponent{
+    Allcategory : catigories[] = []
 
-
-   
-    
-    onSubmit(){
-        this.categoryService.CreateCategory(this.Category).subscribe(
+    constructor(private categoryService: CategoryServices) { }
+    ngOnInit() {
+        this.categoryService.ViewCatigories().subscribe(
             (result) => {
-                this.router.navigate(['categorylist']);
+                this.Allcategory = result
             },
-            (error) => {
+            (error)=> {
                 console.error(error);
             }
         );
     }
-
 }

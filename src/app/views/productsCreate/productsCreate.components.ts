@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { NgFor } from "@angular/common";
 import { CategoryServices } from "../../services/Category.service";
 import catigories from "../../models/catigories";
+import { Router } from "@angular/router";
 @Component({
     selector: 'productCreate-component',
     standalone: true,
@@ -21,14 +22,14 @@ import catigories from "../../models/catigories";
 export class ProductCreateComponent{
     products = new products();
     category : catigories[] = []
-    constructor (private productService : ProductServices ,private catService : CategoryServices) { 
+    constructor (private productService : ProductServices ,private catService : CategoryServices , private router: Router) { 
     
     }
    
     ngOnInit(): void {
         this.catService.ViewCatigories().subscribe((data) => {
             this.category = data
-            console.log("category" , this.category);
+            console.log("category" , this.category );
         });
     }
 
@@ -36,8 +37,8 @@ export class ProductCreateComponent{
         console.log(this.products);
         this.productService.post(this.products).subscribe(
             (result) => {
-                console.log(this.products);
-                window.location.reload();
+                this.router.navigate(['productlist']);
+
             },
             (error) => {
                 console.error(error);

@@ -1,7 +1,7 @@
 export default class transactionTypes
  {
     id = 0 
-    Name = ""
+    name = ""
     createDate = new Date()
     updateDate = new Date()
     isDelete = false

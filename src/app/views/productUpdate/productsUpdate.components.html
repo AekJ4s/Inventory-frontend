@@ -1,21 +1,52 @@
-<form (submit)="onSubmit()">
-  <div>
-      <label> EDIT THE DATA</label>
-
-      <div>
-          <label> Edit This ID : </label>
-          <input type="text" [(ngModel)]="product.id" name="id" >
-
+<form (submit)="onSubmit()" class="mt-4">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col">
+        <label>ID</label>
+        <input type="text" class="form-control" [value]="product.id" name="id" readonly />
       </div>
-      <div>
-          <label> Book Title : </label>
-          <input type="text" [(ngModel)]="product.name" name="title" >
+    </div>
+    
+    <div class="row my-3">
+      <div class="col">
+        <label>Name</label>
+        <input type="text" class="form-control" [value]="product.name" name="name" #nameInput
+          (input)="product.name = nameInput.value" />
       </div>
-      <div>
-          <label> Book price : </label>
-          <input type="number" [(ngModel)]="product.description" name="price" >
+      <div class="col">
+        <label>Description</label>
+        <input type="text" class="form-control" [value]="product.description" name="description" #descriptionInput
+          (input)="product.description = descriptionInput.value" />
       </div>
+    </div>
+    
+    <div class="row my-3">
+      <div class="col">
+        <label>Product Category</label>
+        <select class="form-control" [(ngModel)]="product.categoryId" name="categoryId" required>
+          <option *ngFor="let category of category" [value]="category.id">{{ category.name }}</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>Stock Quantity</label>
+        <input type="number" class="form-control" [value]="product.stockQuantity" name="stockQuantity" #stockQuantityInput
+          (input)="product.stockQuantity = stockQuantityInput.valueAsNumber" />
+      </div>
+      <div class="col">
+        <label>Price</label>
+        <input type="text" class="form-control" [value]="product.price" name="price" #priceInput
+          (input)="product.price = priceInput.valueAsNumber" />
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col">
+        <label>Created Date</label>
+        <input type="datetime" class="form-control" [value]="product.createDate" name="createDate" readonly />
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-3">Edit Product</button>
   </div>
-  <button type="submit">Edit</button>
- 
 </form>

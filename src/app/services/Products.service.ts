@@ -14,8 +14,9 @@ export class ProductServices {
         return this.http.get<products[]>(`${this.baseURL}`)
     }
 
+    
     get(id:number|string){
-        return this.http.get<products>(`${this.baseURL}/${id}`)
+        return this.http.get<products>(`${this.baseURL}/GetBy/${id}`)
     }
     
     post(products:products){
@@ -23,7 +24,7 @@ export class ProductServices {
     }
 
     PUT(products:products){
-        return this.http.put<products>(`${this.baseURL}/products/UpdateProduct/:id`,products)
+        return this.http.put<products>(`${this.baseURL}`,products)
     }
 
     DeleteProduct(id:number|string){

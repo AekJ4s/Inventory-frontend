@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="table table-striped mt-2">
+      <thead>
+        <tr class="text-center">
+          <th>ลำดับ</th>
+          <th>ชื่อประเภท</th>
+          <th>วันที่สร้าง</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let data of Allcategory; let i = index" class="text-center">
+          <td class="text-center">{{ i + 1 }}</td>
+          <td class="text-center">{{ data.name }}</td>
+          <td class="text-center">{{ data.createDate }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button [routerLink]="['../categorycreate']"class="btn btn-success btn-sm">สร้างประเภทสินค้าใหม่</button>
+    
+  </div>
