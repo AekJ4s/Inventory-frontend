@@ -29,4 +29,5 @@ export class  CategoryServices {
     delete(id:number|string){
         return this.http.delete<catigories>(`${this.baseURL}/${id}`)
     }
+    
 }
