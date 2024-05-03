@@ -1,8 +1,8 @@
-<div>
-    <table class="table mt-3">
+<div class="container" >
+    <table class="table ">
         <thead>
           <tr>
-            <th>#</th>
+            <th >#</th>
             <th>รหัสธุรกรรม</th>
             <th>ชื่อสินค้า</th>
             <th>ประเภทธุรกรรม</th>
@@ -14,16 +14,15 @@
         </thead>
         <tbody>
           
-            <tr *ngFor="let transaction of Alltransaction; let i = index">
-
-              <td>{{ i + 1 }}</td>
-              <td>{{ transaction.id }}</td>
+            <tr *ngFor="let transaction of Alltransaction; let i = index" >
+              <td >{{ i + 1 }}</td>
+              <td >{{ transaction.id }}</td>
               <td>{{ transaction.product.name }}</td>
               <td>{{ transaction.transactionType.name }}</td>
               <td>{{ transaction.quantity }}</td>
               <td>{{ transaction.createDate }}</td>
               <td>
-                  <button (click)="onDelete(transaction.id)" class="btn btn-sm btn-danger">ยกเลิกรายการ</button>
+                  <button (click)="onDelete(transaction.id)" class="btn btn-sm btn-danger text-danger">ยกเลิกรายการ</button>
               </td>
         
             </tr>

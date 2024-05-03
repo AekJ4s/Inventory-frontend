@@ -8,6 +8,8 @@ import { TransactionListComponent } from './views/transactionList/transactionLis
 import { CategoryListComponent } from './views/catigoriesList/categoriesList.components';
 import { CategoryCreateComponent } from './views/catigoriesCreate/categoriesCreate.components';
 import { AppComponent } from './app.component';
+import { ProductsPlaza } from './views/productPlaza/productsPlaza.components';
+import { TransactionsBuying } from './views/์transactionBuying/transactionsBuying.components';
 export const routes: Routes = [
 
     {path:'createproducts',component: ProductCreateComponent},
@@ -19,7 +21,8 @@ export const routes: Routes = [
     {path:'categorylist',component: CategoryListComponent},
     {path:'categorycreate',component: CategoryCreateComponent},
 
+    {path:'transactionBuying',component: TransactionsBuying},
+    {path:'transactionlist', component: TransactionListComponent},
 
-    {path:'transactionlist', component: TransactionListComponent}
-
+    {path: 'productplaza', component: ProductsPlaza},
 ];

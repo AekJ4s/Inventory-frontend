@@ -14,17 +14,16 @@ export class Transactionservices {
         return this.http.get<transactions[]>(`${this.baseURL}`)
     }
 
-    
-    get(id:number|string){
-        return this.http.get<transactions>(`${this.baseURL}/GetBy/${id}`)
+    BuyProduct(transaction : transactions){
+        return this.http.post<transactions>(`${this.baseURL}/BUYING`,transaction)
     }
     
-    post(transaction:transactions){
-        return this.http.post<transactions>(`${this.baseURL}`,transaction)
+    FillProduct(transaction : transactions){
+        return this.http.post<transactions>(`${this.baseURL}/FILLPRODUCT`,transaction)
     }
 
-    PUT(transaction:transactions){
-        return this.http.put<transactions>(`${this.baseURL}`,transaction)
+    OutofDate(transaction : transactions){
+        return this.http.post<transactions>(`${this.baseURL}/OUTOFDATE`,transaction)
     }
 
     CancelTransaction(id:number|string){

@@ -1,0 +1,56 @@
+
+<div class=" justify-content-center container mx-auto">
+
+<table class="table">
+  <thead>
+    <tr class="text-center ">
+      <th scope="col" >#</th>
+      <th>ชื่อสินค้า</th>
+      <th>รายละเอียด</th>
+      <th>ประเภท</th>
+      <th (click)="letinclude(1)" >
+        สต็อก 
+        <span *ngIf="includestat == 1"> ↡ </span>
+        <span *ngIf="includestat == 2"> ↟ </span>
+        <span *ngIf="includestat == 0"></span>
+      </th>
+      <th>ราคา</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of Allproduct; let i = index" class="text-center" >
+      <th scope="row" >{{data.id}}</th>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.name}}</div></td>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.description}}</div></td>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.categoryId}}  |  {{data.category.name}}</div></td>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.stockQuantity}}</div></td>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.price}}</div></td>
+      <td >
+        <div class="d-flex gap-2 justify-content-center ">
+          <button (click)="openBuying(data)" class="btn btn-warning btn-sm bg-warning ">ซื้อสินค้า</button> 
+          <button (click)="openFilling(data)" class="btn btn-warning btn-sm  bg-success text-white ">เพิ่มสินค้า</button>
+          <button (click)="openOuting(data)" class="btn btn-warning btn-sm bg-dark text-white ">หมดอายุ</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<button [routerLink]="['../createproducts']"class="btn btn-success btn-sm text-success">สร้างสินค้าใหม่</button>
+
+</div>
+<ng-container *ngIf="optionBuying.popup">
+<transactionsBuying-component [optionBuying]="optionBuying"></transactionsBuying-component>
+</ng-container>
+<ng-container *ngIf="optionFilling.popup">
+  <transactionFill-component [optionFilling]="optionFilling"></transactionFill-component>
+  </ng-container>
+
+  <ng-container *ngIf="optionOuting.popup">
+    <transactionsOUT-component [optionOuting]="optionOuting"></transactionsOUT-component>
+    </ng-container>
+    
+
+

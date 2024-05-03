@@ -28,6 +28,7 @@ export class CategoryCreateComponent{
    
     
     onSubmit(){
+        
         this.categoryService.CreateCategory(this.Category).subscribe(
             (result) => {
                 this.router.navigate(['categorylist']);

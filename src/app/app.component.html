@@ -1,24 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand ms-3" routerLink="#" >Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="productlist">ProductList <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="categorylist">CategoryList <span class="sr-only"></span></a>
-          </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="transactionlist">TransactionList <span class="sr-only"></span></a>
-          </li>
-          
-      </ul>
-      
-    </div>
-  </nav>
-
-  <router-outlet>
+<nav class="mask">
+  <a routerLink="#">INVENTORY WEBSITE</a>
+  <a class="text-success ms-3"> DATE TIME NOW | </a>
+  <a class="ms-2">{{ thailandTime }}</a>
+  <ul class="list">
+    <li>
+      <a class="nav-link" routerLink="productplaza"
+        >ProductPlaza <span class="sr-only"></span
+      ></a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="productlist"
+        >ProductList <span class="sr-only"></span
+      ></a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="categorylist"
+        >CategoryList <span class="sr-only"></span
+      ></a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="transactionlist"
+        >TransactionList <span class="sr-only"></span
+      ></a>
+    </li>
+    <li>
+      <a class="nav-link" routerLink="transactionBuying"
+        >excam <span class="sr-only"></span
+      ></a>
+    </li>
+  </ul>
+  <button class="search">Search</button>
+  <button class="menu">Menu</button>
+</nav>
+<div style="margin-top: 100px">
+  <router-outlet></router-outlet>
+</div>

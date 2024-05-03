@@ -1,9 +1,9 @@
 
 <div class=" justify-content-center container mx-auto">
 
-<table class="table mt-5">
+<table class="table">
   <thead>
-    <tr class="text-center">
+    <tr class="text-center ">
       <th scope="col" >#</th>
       <th >ชื่อสินค้า</th>
       <th >รายละเอียด</th>
@@ -15,21 +15,27 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of Allproduct; let i = index" class="text-center">
-      <th scope="row">{{i+1}}</th>
-      <td>{{data.name}}</td>
-      <td>{{data.description}}</td>
-      <td>{{data.categoryId}}</td>
-      <td >{{data.stockQuantity }}</td>
-      <td >{{data.price }}</td>
-      <td >{{data.createDate }}</td>
+    
+    <tr *ngFor="let data of Allproduct; let i = index" class="text-center ">
+
+      <th scope="row">{{data.id}}</th>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.name}}</div></td>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.description}}</div></td>
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.categoryId}}  |  {{data.category.name}}</div></td>
+      <td class="addhightable" ><div class="d-flex justify-content-center align-items-center h-100">{{data.stockQuantity}}</div></td>
+      <td class="addhightable" ><div class="d-flex justify-content-center align-items-center h-100">{{data.price}}</div></td>
+      
+      <td class="addhightable"><div class="d-flex justify-content-center align-items-center h-100">{{data.createDate }}</div></td>
       <td >
-          <button [routerLink]="['../updateproducts', data.id]"class="btn btn-warning btn-sm">แก้ไขสินค้า</button>
-          <button (click)="onDelete(data.id)" class="btn btn-danger btn-sm">ลบสินค้า</button></td>
+        <div class="d-flex gap-2 justify-content-center ">
+          <button [routerLink]="['../updateproducts', data.id]"class="btn btn-warning btn-sm text-warning">แก้ไขสินค้า</button>
+          <button (click)="onDelete(data.id)" class="btn btn-danger btn-sm text-danger">ลบสินค้า</button>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<button [routerLink]="['../createproducts']"class="btn btn-success btn-sm">สร้างสินค้าใหม่</button>
+<button [routerLink]="['../createproducts']"class="btn btn-success btn-sm text-success">สร้างสินค้าใหม่</button>
 
 </div>

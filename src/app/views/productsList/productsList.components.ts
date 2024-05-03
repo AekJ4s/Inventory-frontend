@@ -21,12 +21,14 @@ export class ProductListComponent {
         this.productsService.GetAllProduct().subscribe(
             (result) => {
                 this.Allproduct = result
+      console.log(result)
             },
             (error)=> {
                 console.error(error);
             }
         );
     }
+    
 
     onDelete(data: number) {
         this.productsService.DeleteProduct(data).subscribe(

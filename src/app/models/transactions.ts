@@ -3,9 +3,9 @@ import transactionTypes from "./transactionTypes"
 
 export default class transactions {
     id = 0 
-    prodcutId = 0
+    productId = 0
     transactionTypesID = 0
-    quantity = ""
+    quantity = 0
     createDate = new Date()
     updateDate = new Date()
     isDelete = false
