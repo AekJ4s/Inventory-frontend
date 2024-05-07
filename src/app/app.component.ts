@@ -13,12 +13,13 @@ import { ProductsPlaza } from './views/productPlaza/productsPlaza.components';
 import { TransactionsBuying } from './views/์transactionBuying/transactionsBuying.components';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { SigninPageComponent } from './views/signinPage/signinPage.components';
 
 @Component({
   selector: 'app-root',
   standalone: true,
 
-  imports: [CommonModule, TransactionsBuying, ProductsPlaza, ProductListComponent, MatSidenavModule, ProductCreateComponent, ProductById, RouterModule, FormsModule, CommonModule, RouterOutlet, MatToolbarModule, MatTabsModule, MatIconModule],
+  imports: [SigninPageComponent,CommonModule, TransactionsBuying, ProductsPlaza, ProductListComponent, MatSidenavModule, ProductCreateComponent, ProductById, RouterModule, FormsModule, CommonModule, RouterOutlet, MatToolbarModule, MatTabsModule, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
