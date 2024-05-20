@@ -13,3 +13,4 @@ export default class products {
     category = new catigories
 
 }
+
